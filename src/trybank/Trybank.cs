@@ -48,16 +48,18 @@ public class Trybank
 
     for (int i = 0; i < registeredAccounts; i++)
     {
-      if (Bank[i, 0] != number && Bank[i, 1] != agency)
-      {
-        throw new ArgumentException("Agência + Conta não encontrada");
-      }
       if (Bank[i, 2] != pass)
       {
         throw new ArgumentException("Senha incorreta");
       }
       if (Bank[i, 0] == number && Bank[i, 1] == agency)
       {
+        Logged = true;
+        loggedUser = Bank[i, 0];
+      }
+      else
+      {
+        throw new ArgumentException("Agência + Conta não encontrada");
 
       }
     }
